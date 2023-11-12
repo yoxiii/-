@@ -2,34 +2,34 @@
 #include "OLED_Font.h"
 #include "line_patrol.h"
 /*引脚配置*/
-#define OLED_W_SCL(x)		GPIO_WriteBit(GPIOB, GPIO_Pin_10, (BitAction)(x))
-#define OLED_W_SDA(x)		GPIO_WriteBit(GPIOB, GPIO_Pin_11, (BitAction)(x))
+#define OLED_W_SCL(x)		GPIO_WriteBit(GPIOA, GPIO_Pin_4, (BitAction)(x))
+#define OLED_W_SDA(x)		GPIO_WriteBit(GPIOA, GPIO_Pin_5, (BitAction)(x))
 
-void OLED_GPIO_Init(void)
-{
-RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-	
-	GPIO_InitTypeDef GPIO_InitStructure;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOB, &GPIO_InitStructure);
-	
-	GPIO_SetBits(GPIOB, GPIO_Pin_1);
-	GPIO_ResetBits(GPIOB,GPIO_Pin_0);
-}
+//void OLED_GPIO_Init(void)
+//{
+//RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+//	
+//	GPIO_InitTypeDef GPIO_InitStructure;
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+//	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+//	GPIO_Init(GPIOB, &GPIO_InitStructure);
+//	
+//	GPIO_SetBits(GPIOB, GPIO_Pin_1);
+//	GPIO_ResetBits(GPIOB,GPIO_Pin_0);
+//}
 /*引脚初始化*/
 void OLED_I2C_Init(void)
 {
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
 	
 	GPIO_InitTypeDef GPIO_InitStructure;
  	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
- 	GPIO_Init(GPIOB, &GPIO_InitStructure);
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
- 	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
+ 	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
+ 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
 	OLED_W_SCL(1);
 	OLED_W_SDA(1);

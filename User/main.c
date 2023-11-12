@@ -4,17 +4,20 @@
 #include "line_patrol.h"
 #include "OLED.h"
 #include "pwm.h"
+RCC_ClocksTypeDef get_rcc_clock;    //
 int main(void)
 {
 Motor_Init();
 
-	OLED_GPIO_Init();
+	//OLED_GPIO_Init();
 	OLED_Init();
 	OLED_ShowString(1,1,"p:");
 //	OLED_ShowString(2,1,"err:");
 	//Car_Left(1000,1000);
 	//Car_Stop();
 
+
+RCC_GetClocksFreq(&get_rcc_clock); 
 	while (1)
 	{
 Car_Left(700,800);

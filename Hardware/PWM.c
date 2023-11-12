@@ -18,7 +18,7 @@ GPIO_Init(GPIOA,&GPIO_InitStructure);
 
 TIM_TimeBaseInitStructure.TIM_Period = 999;
 
-TIM_TimeBaseInitStructure.TIM_Prescaler = 719;
+TIM_TimeBaseInitStructure.TIM_Prescaler = 71;
 TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1 ;
 TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 TIM_TimeBaseInitStructure.TIM_RepetitionCounter =0;
@@ -61,8 +61,8 @@ void Timer_Init(void)
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_TimeBaseInitStructure.TIM_Period = 10000 - 1;
-	TIM_TimeBaseInitStructure.TIM_Prescaler = 72 - 1;   //  1/100s
+	TIM_TimeBaseInitStructure.TIM_Period = 1000 - 1;
+	TIM_TimeBaseInitStructure.TIM_Prescaler = 80 - 1;   //  1/100s
 	TIM_TimeBaseInitStructure.TIM_RepetitionCounter = 0;
 	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseInitStructure);
 	
